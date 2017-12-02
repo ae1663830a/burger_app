@@ -1,0 +1,7 @@
+apt-get install nodejs-legacy npm // install nodejs
+npm install -g create-react-app // letting us to install react app which we could access globaly
+create-react-app hello-world // creating react app
+add to package.json dependency "bootstrap": "3.3.7"
+npm install // 
+npm run build
+npm start
