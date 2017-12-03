@@ -28,6 +28,14 @@ class NewPerson extends Component {
     };
 
     render() {
+
+        const style = {
+            backgroundColor: '#9a1',
+            border: '3px solid #aa5',
+            borderRadius: '4px',
+            color: 'white'
+        };
+        
         return (
             <div className="App">
                 <h2>Hello </h2>
@@ -39,6 +47,9 @@ class NewPerson extends Component {
                 <Animal logging={() => console.log('error')}
                         age={Math.ceil(Math.random() * 5)}
                 />
+                <button style={style}>
+                    Switch Button
+                </button>
             </div>
         )
     }
