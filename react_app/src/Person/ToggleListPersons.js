@@ -64,33 +64,41 @@ class ToggleListPersons extends Component {
     };
 
     render() {
+        let persons = null;
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                    <Person
+                        name={this.state.persons[0].name}
+                        click={this.changeName.bind(this, 'Andy', 45)}
+                        age={this.state.persons[0].ag {
+                    this.state.showPersons ? // If it is true = show the div block below
+                        : null // if it is false = show null 'nothing'
+                }
+e}
+                    />
+                    <Person
+                        name={this.state.persons[1].name}
+                        click={this.changeName.bind(this, 'Andy', 45)}
+                        age={this.state.persons[1].age}
+                    />
+                    <Person
+                        name={this.state.persons[2].name}
+                        click={this.changeName.bind(this, 'Andy', 45)}
+                        age={this.state.persons[2].age}
+                        changed={this.nameChangeHandler}
+                    />
+                </div>
+            )
+        }
+
         return (
             <div className="App">
                 <h2>Hello </h2>
-                {
-                    this.state.showPersons ? // If it is true = show the div block below
-                        <div>
-                            <Person
-                                name={this.state.persons[0].name}
-                                click={this.changeName.bind(this, 'Andy', 45)}
-                                age={this.state.persons[0].age}
-                            />
-                            <Person
-                                name={this.state.persons[1].name}
-                                click={this.changeName.bind(this, 'Andy', 45)}
-                                age={this.state.persons[1].age}
-                            />
-                            <Person
-                                name={this.state.persons[2].name}
-                                click={this.changeName.bind(this, 'Andy', 45)}
-                                age={this.state.persons[2].age}
-                                changed={this.nameChangeHandler}
-                            />
-                        </div> : null // if it is false = show null 'nothing'
-                }
-
-                <Animal logging={() => console.log('error')}
-                        age={Math.ceil(Math.random() * 5)}
+                {persons}
+                <Animal
+                    logging={() => console.log('error')}
+                    age={Math.ceil(Math.random() * 5)}
                 />
                 <button style={style} onClick={this.togglePersonsHandler}>
                     Switch Button
