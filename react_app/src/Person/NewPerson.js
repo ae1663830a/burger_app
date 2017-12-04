@@ -35,7 +35,7 @@ class NewPerson extends Component {
             borderRadius: '4px',
             color: 'white'
         };
-        
+
         return (
             <div className="App">
                 <h2>Hello </h2>

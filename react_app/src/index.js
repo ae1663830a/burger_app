@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import NewPerson from './Person/NewPerson'
 import registerServiceWorker from './registerServiceWorker';
+import ToggleListPersons from "./Person/ToggleListPersons";
 
-ReactDOM.render(<NewPerson />, document.getElementById('root'));
+ReactDOM.render(<ToggleListPersons />, document.getElementById('root'));
 registerServiceWorker();
