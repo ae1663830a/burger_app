@@ -71,11 +71,7 @@ class ToggleListPersons extends Component {
                     <Person
                         name={this.state.persons[0].name}
                         click={this.changeName.bind(this, 'Andy', 45)}
-                        age={this.state.persons[0].ag {
-                    this.state.showPersons ? // If it is true = show the div block below
-                        : null // if it is false = show null 'nothing'
-                }
-e}
+                        age={this.state.persons[0].age}
                     />
                     <Person
                         name={this.state.persons[1].name}
