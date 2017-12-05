@@ -28,10 +28,10 @@ class PersonsListArray extends Component {
     };
 
     deletePersonHandler = (personIndex) => {
-        const persons = this.state.persons;
-        persons.splice(personIndex, 1);
+        const newPersons = [...this.state.persons]; // Creating a new array of persons by copying the persons array.
+        newPersons.splice(personIndex, 1); // Remove element: starting at personIndex, 1 = total number of removing elements
         this.setState({
-            persons: persons
+            persons: newPersons // Re-assign (in classes state) persons array after deletion.
         })
     };
 
