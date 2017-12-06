@@ -1,53 +1,122 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
 import Person from './Person/Person'
-import {personAsVar, personWithArgs} from './Person/PersonDiffExport'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+
 
 class App extends Component {
 
     state = {
         persons: [
-            {name: 'Tim', age: 21},
-            {name: 'Dane', age: 23}
-        ]
+            {id: 'a', name: 'Unknown', age: 23},
+            {id: 'b', name: 'Unknown', age: 32},
+            {id: 'c', name: 'Unknown', age: 25}
+        ],
+
+        showPersons: false
     };
 
-    switchNameHandler = (newName) => {
-        console.log('Was clicked');
-        // Does not work this.state.persons[0].name = 'Andrew';
+    deletePersonHandler = (personIndex) => {
+        const newPersons = [...this.state.persons]; // Creates a new array of persons by copying the persons array.
+        newPersons.splice(personIndex, 1); // Remove elements: starting at personIndex, 1 = total number of elements to remove.
         this.setState({
-            persons: [
-                {name: newName, age: 21},
-                {name: 'Dane', age: 23}
-            ]
+            persons: newPersons // Re-assign (in classes state) persons array after deletion.
         })
     };
 
-    switchNameHandler2 = () => {
-        console.log('no Mouse')
+    togglePersonsHandler = () => {
+        this.setState({
+            showPersons: !this.state.showPersons
+        })
+    };
+
+    changeNameHandler = (event, id) => {
+        const personIndex = this.state.persons.findIndex(person => {
+            return person.id === id; // Finds element by id
+        });
+
+        const newPerson = {
+            ...this.state.persons[personIndex]
+        }; // Creates a new array by copying the old array, and retrieves the element by index.
+
+        newPerson.name = event.target.value; // Changes retrieved person's name.
+
+        const newPersons = [...this.state.persons]; // Creates a new array by copying the old array.
+        newPersons[personIndex] = newPerson; // Assigns retrieved element to a just created array.
+
+        this.setState({
+            persons: newPersons // Changes state to new, replaces the old array to a just created array.
+        });
+    };
+
+    changeAge = (event, id) => {
+        const personIndex = this.state.persons.findIndex(person => {
+            return person.id === id;
+        });
+
+        const newPerson = {
+            ...this.state.persons[personIndex]
+        };
+
+        newPerson.age = event.target.value;
+
+        const newPersons = [...this.state.persons];
+        newPersons[personIndex] = newPerson;
+
+        this.setState({
+            persons: newPersons
+        });
     };
 
     render() {
+
+        const style = {
+            backgroundColor: '#9a1',
+            border: '3px solid #aa5',
+            borderRadius: '4px',
+            color: 'white',
+            margin: '10px',
+            width: '120px',
+            height: '30px',
+            hover: 'blue'
+        };
+
+        let persons = null;
+        if (this.state.showPersons) {
+            style.backgroundColor = '#C49';
+            style.border = '3px solid #e25';
+            if (this.state.persons.length > 0) {
+                persons = (
+                    <div>
+                        {this.state.persons.map((person, index) => {
+                            return <ErrorBoundary key={person.id}>
+                                <Person
+                                    click={() => this.deletePersonHandler(index)} // Calls deletePersonHandler only when click prop is called. If without arrow function it executes on-load.
+                                    name={person.name}
+                                    age={person.age}
+                                    changeName={(event) => this.changeNameHandler(event, person.id)} // It executes onChange with event prop.
+                                    changeAge={(event) => this.changeAge(event, person.id)}
+                                />
+                            </ErrorBoundary>
+                        })}
+                    </div>
+                );
+
+            } else {
+                persons = (<h2>The list is empty.</h2>)
+            }
+        }
+
+        const button = this.state.showPersons ? 'Hide' : 'Show';
+
         return (
             <div className="App">
-                <h1>Main header</h1>
-
-                <Person
-                    click={() => (this.switchNameHandler('Andy')) } // Call a function with props. {props.click} from Person.js
-                    name="Bill" // {props.name} and {props.age}
-                    age="20">
-                    My hobbies are traveling and reading.
-                </Person>
-
-                <h4 >{personAsVar()}</h4>
-                <h4>{personWithArgs({name: "Bill", sex: "male"/*, click:this.switchNameHandler*/})}</h4>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-                <button onClick={this.switchNameHandler.bind(this, 'Alex')}
-                        onMouseOut={this.switchNameHandler2}>
-                    Switch Button
+                <h2>Hello Everyone!</h2>
+                {persons}
+                <button style={style} onClick={this.togglePersonsHandler}>
+                    {button}
                 </button>
             </div>
-        );
+        )
     }
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import NewPerson from './Person/NewPerson'
+import OldApp from './old/OldApp';
+import NewPerson from './old/NewPerson'
 import registerServiceWorker from './registerServiceWorker';
-import ToggleListPersons from "./Person/ToggleListPersons";
-import PersonsListArray from "./Person/PersonsListArray";
+import ToggleListPersons from "./old/ToggleListPersons";
+import App from "./App";
 
-ReactDOM.render(<PersonsListArray />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
