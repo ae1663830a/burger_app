@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Person from './Person'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
 class PersonsListArray extends Component {
@@ -87,14 +88,15 @@ class PersonsListArray extends Component {
                 persons = (
                     <div>
                         {this.state.persons.map((person, index) => {
-                            return <Person
-                                click={() => this.deletePersonHandler(index)} // Calls deletePersonHandler only when click prop is called. If without arrow function it executes on-load.
-                                name={person.name}
-                                age={person.age}
-                                key={person.id}
-                                changeName={(event) => this.changeNameHandler(event, person.id)} // It executes onChange with event prop.
-                                changeAge={(event) => this.changeAge(event, person.id)}
-                            />
+                            return <ErrorBoundary key={person.id}>
+                                <Person
+                                    click={() => this.deletePersonHandler(index)} // Calls deletePersonHandler only when click prop is called. If without arrow function it executes on-load.
+                                    name={person.name}
+                                    age={person.age}
+                                    changeName={(event) => this.changeNameHandler(event, person.id)} // It executes onChange with event prop.
+                                    changeAge={(event) => this.changeAge(event, person.id)}
+                                />
+                            </ErrorBoundary>
                         })}
                     </div>
                 );
