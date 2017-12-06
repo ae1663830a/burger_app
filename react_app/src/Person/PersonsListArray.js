@@ -55,6 +55,25 @@ class PersonsListArray extends Component {
         });
     };
 
+    changeAge = (event, id) => {
+        const personIndex = this.state.persons.findIndex(person => {
+            return person.id === id;
+        });
+
+        const newPerson = {
+            ...this.state.persons[personIndex]
+        };
+
+        newPerson.age = event.target.value;
+
+        const newPersons = [...this.state.persons];
+        newPersons[personIndex] = newPerson;
+
+        this.setState({
+            persons: newPersons
+        });
+    };
+
     render() {
         let persons = null;
         if (this.state.showPersons) {
@@ -63,11 +82,12 @@ class PersonsListArray extends Component {
                     <div>
                         {this.state.persons.map((person, index) => {
                             return <Person
-                                click={() => this.deletePersonHandler(index)}
+                                click={() => this.deletePersonHandler(index)} // Calls deletePersonHandler only when click prop is called. If without arrow function it executes on-load.
                                 name={person.name}
                                 age={person.age}
                                 key={person.id}
-                                changed={(event) => this.changeNameHandler(event, person.id)}
+                                changeName={(event) => this.changeNameHandler(event, person.id)} // It executes onChange with event prop.
+                                changeAge={(event) => this.changeAge(event, person.id)}
                             />
                         })}
                     </div>
