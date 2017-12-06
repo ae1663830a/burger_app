@@ -2,14 +2,6 @@ import React, {Component} from 'react'
 import Person from './Person'
 
 
-const style = {
-    backgroundColor: '#9a1',
-    border: '3px solid #aa5',
-    borderRadius: '4px',
-    color: 'white',
-    margin: '10px'
-};
-
 class PersonsListArray extends Component {
 
     state = {
@@ -75,8 +67,22 @@ class PersonsListArray extends Component {
     };
 
     render() {
+
+        const style = {
+            backgroundColor: '#9a1',
+            border: '3px solid #aa5',
+            borderRadius: '4px',
+            color: 'white',
+            margin: '10px',
+            width: '120px',
+            height: '30px',
+            hover: 'blue'
+        };
+
         let persons = null;
         if (this.state.showPersons) {
+            style.backgroundColor = '#C49';
+            style.border = '3px solid #e25';
             if (this.state.persons.length > 0) {
                 persons = (
                     <div>
@@ -91,7 +97,8 @@ class PersonsListArray extends Component {
                             />
                         })}
                     </div>
-                )
+                );
+
             } else {
                 persons = (<h2>The list is empty.</h2>)
             }
@@ -101,7 +108,7 @@ class PersonsListArray extends Component {
 
         return (
             <div className="App">
-                <h2>Hello</h2>
+                <h2>Hello Everyone!</h2>
                 {persons}
                 <button style={style} onClick={this.togglePersonsHandler}>
                     {button}
