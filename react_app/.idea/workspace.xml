@@ -14,8 +14,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-480">
-              <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+            <state relative-caret-position="-113">
+              <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -23,12 +23,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding>
+                <marker date="1512682659527" expanded="true" signature="65:77" ph="{...}" />
+                <marker date="1512682659527" expanded="true" signature="503:508" ph="{&quot;start&quot;: &quot;react-scripts start&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,8 +39,8 @@
       <file leaf-file-name="Person.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Person/Person.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="105">
+              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -46,8 +49,8 @@
       <file leaf-file-name="Persons.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Person/Persons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -90,14 +93,20 @@
         <option value="$PROJECT_DIR$/src/components/old/OldApp.js" />
         <option value="$PROJECT_DIR$/src/containers/App.test.js" />
         <option value="$PROJECT_DIR$/src/components/Person/Persons.js" />
-        <option value="$PROJECT_DIR$/src/components/Person/Person.js" />
         <option value="$PROJECT_DIR$/src/cockpit/Cockpit.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/toggle.js" />
-        <option value="$PROJECT_DIR$/src/containers/App.js" />
         <option value="$PROJECT_DIR$/src/cockpit/Style.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/components/Person/Person.js" />
+        <option value="$PROJECT_DIR$/src/containers/App.js" />
       </list>
     </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <exe-path />
+    <config-path />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -117,10 +126,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="458" />
-    <option name="y" value="206" />
-    <option name="width" value="1167" />
-    <option name="height" value="662" />
+    <option name="x" value="96" />
+    <option name="y" value="60" />
+    <option name="width" value="1130" />
+    <option name="height" value="646" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -137,7 +146,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -157,33 +168,32 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="react_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Person" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/eslint/package.json" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.selected.package.jscs" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -319,12 +329,16 @@
       <workItem from="1512498490032" duration="12126000" />
       <workItem from="1512580155116" duration="16709000" />
       <workItem from="1512631313177" duration="2155000" />
-      <workItem from="1512662211392" duration="6924000" />
+      <workItem from="1512662211392" duration="7959000" />
+      <workItem from="1512681614775" duration="167000" />
+      <workItem from="1512681810719" duration="710000" />
+      <workItem from="1512682570230" duration="169000" />
+      <workItem from="1512682769508" duration="1488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84238000" />
+    <option name="totallyTimeSpent" value="87807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -336,7 +350,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="458" y="206" width="1368" height="745" extended-state="6" />
+    <frame x="96" y="60" width="1368" height="745" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -345,12 +360,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.49697885" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20015106" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20921451" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -407,13 +422,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/old/NewPerson.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -624,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -645,7 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,7 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,9 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,7 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,73 +713,142 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/toggle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cockpit/Cockpit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/toggle.js" />
+    <entry file="file://$PROJECT_DIR$/src/cockpit/Cockpit.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Person/Persons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Person/Person.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cockpit/Style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cockpit/Style.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <marker date="1512682659527" expanded="true" signature="65:77" ph="{...}" />
+            <marker date="1512682659527" expanded="true" signature="503:508" ph="{&quot;start&quot;: &quot;react-scripts start&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/eslint/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Person/Person.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480">
-          <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+        <state relative-caret-position="-113">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>react_app</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
