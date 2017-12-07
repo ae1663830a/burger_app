@@ -1,9 +1,8 @@
-import React, {Component} from 'react'
-import Person from './Person/Person'
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import React, {PureComponent} from 'react'
+import Persons from '../components/Person/Persons'
 
 
-class App extends Component {
+class App extends PureComponent {
 
     state = {
         persons: [
@@ -12,7 +11,8 @@ class App extends Component {
             {id: 'c', name: 'Unknown', age: 25}
         ],
 
-        showPersons: false
+        showPersons: false,
+        toggleClicked: 0
     };
 
     deletePersonHandler = (personIndex) => {
@@ -24,8 +24,11 @@ class App extends Component {
     };
 
     togglePersonsHandler = () => {
-        this.setState({
-            showPersons: !this.state.showPersons
+        this.setState((prevState) => {
+            return {
+                showPersons: !this.state.showPersons,
+                toggleClicked: prevState.toggleClicked + 1
+            }
         })
     };
 
@@ -52,16 +55,12 @@ class App extends Component {
         const personIndex = this.state.persons.findIndex(person => {
             return person.id === id;
         });
-
         const newPerson = {
             ...this.state.persons[personIndex]
         };
-
         newPerson.age = event.target.value;
-
         const newPersons = [...this.state.persons];
         newPersons[personIndex] = newPerson;
-
         this.setState({
             persons: newPersons
         });
@@ -87,20 +86,14 @@ class App extends Component {
             if (this.state.persons.length > 0) {
                 persons = (
                     <div>
-                        {this.state.persons.map((person, index) => {
-                            return <ErrorBoundary key={person.id}>
-                                <Person
-                                    click={() => this.deletePersonHandler(index)} // Calls deletePersonHandler only when click prop is called. If without arrow function it executes on-load.
-                                    name={person.name}
-                                    age={person.age}
-                                    changeName={(event) => this.changeNameHandler(event, person.id)} // It executes onChange with event prop.
-                                    changeAge={(event) => this.changeAge(event, person.id)}
-                                />
-                            </ErrorBoundary>
-                        })}
+                        <Persons
+                            persons={this.state.persons}
+                            clicked={this.deletePersonHandler}
+                            changeName={this.changeNameHandler}
+                            changeAge={this.changeAge}
+                        />
                     </div>
                 );
-
             } else {
                 persons = (<h2>The list is empty.</h2>)
             }
@@ -110,7 +103,9 @@ class App extends Component {
 
         return (
             <div className="App">
+                {this.state.toggleClicked}
                 <h2>Hello Everyone!</h2>
+                {this.props.title}<br/>
                 {persons}
                 <button style={style} onClick={this.togglePersonsHandler}>
                     {button}
