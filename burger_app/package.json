@@ -2,11 +2,13 @@
   "name": "burger_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
+    "bootstrap": "3.3.7",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
-    "bootstrap": "3.3.7"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",
