@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Aux from '../../hoc/Aux'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
+import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
 
 const INGREDIENT_PRICES = {
@@ -20,7 +22,23 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 1
+        totalPrice: 1,
+        canBeOrdered: false,
+        isOrderNow: false
+    };
+
+    orderNow = () => {
+      this.setState({
+          isOrderNow: true
+      })
+    };
+
+    updateOrderState = (ingredients) => {
+        const sum = Object.keys(ingredients)
+            .map(ingredientsKey => {
+                return ingredients[ingredientsKey];
+            }).reduce((sum, el) => sum + el, 0);
+        this.setState({canBeOrdered: sum > 0})
     };
 
     addIngredient = (type) => {
@@ -36,12 +54,13 @@ class BurgerBuilder extends Component {
         this.setState({
             totalPrice: newPrice,
             ingredients: updatedIngredients
-        })
+        });
+        this.updateOrderState(updatedIngredients)
     };
 
     deductIngredient = (type) => {
         const oldCount = this.state.ingredients[type];
-        if(oldCount > 0){
+        if (oldCount > 0) {
             const updatedCount = oldCount - 1;
             const updatedIngredients = {
                 ...this.state.ingredients
@@ -53,7 +72,8 @@ class BurgerBuilder extends Component {
             this.setState({
                 totalPrice: newPrice,
                 ingredients: updatedIngredients
-            })
+            });
+            this.updateOrderState(updatedIngredients)
         }
 
     };
@@ -63,18 +83,27 @@ class BurgerBuilder extends Component {
         const disabledInfo = {
             ...this.state.ingredients
         };
-        for (let key in disabledInfo){
+        for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
 
+        // const ready = {
+        //
+        // };
+
         return (
             <Aux>
+                <Modal show={this.state.isOrderNow}>
+                    <OrderSummary ingredients={this.state.ingredients}/>
+                </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
                     addIngredient={this.addIngredient}
                     deductIngredient={this.deductIngredient}
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
+                    canBeOrdered={this.state.canBeOrdered}
+                    order={this.orderNow}
                 />
             </Aux>
         )

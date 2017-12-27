@@ -17,10 +17,14 @@ const buildControls = (props) => (
                 key={control.label}
                 label={control.label}
                 add={() => props.addIngredient(control.type)}
-                deduct = {() => props.deductIngredient(control.type)}
+                deduct={() => props.deductIngredient(control.type)}
                 disabled={props.disabled[control.type]}
             />
         ))}
+        <button className="OrderButton"
+                disabled={!props.canBeOrdered}
+                onClick={props.order}>Order Now
+        </button>
     </div>
 );
 
