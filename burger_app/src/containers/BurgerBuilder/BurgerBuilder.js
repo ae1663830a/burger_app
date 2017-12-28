@@ -27,9 +27,13 @@ class BurgerBuilder extends Component {
         isOrderNow: false
     };
 
+    orderContinue = () => {
+      alert('You are going to buy it!')
+    };
+
     orderNow = () => {
       this.setState({
-          isOrderNow: true
+          isOrderNow: !this.state.isOrderNow
       })
     };
 
@@ -87,14 +91,15 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
 
-        // const ready = {
-        //
-        // };
-
         return (
             <Aux>
-                <Modal show={this.state.isOrderNow}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                <Modal show={this.state.isOrderNow} hide={this.orderNow}>
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        orderCancel={this.orderNow}
+                        orderContinue={this.orderContinue}
+                        price={this.state.totalPrice}
+                    />
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
