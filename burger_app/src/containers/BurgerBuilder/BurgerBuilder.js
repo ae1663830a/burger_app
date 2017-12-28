@@ -28,13 +28,13 @@ class BurgerBuilder extends Component {
     };
 
     orderContinue = () => {
-      alert('You are going to buy it!')
+        alert('You are going to buy it!')
     };
 
     orderNow = () => {
-      this.setState({
-          isOrderNow: !this.state.isOrderNow
-      })
+        this.setState({
+            isOrderNow: !this.state.isOrderNow
+        })
     };
 
     updateOrderState = (ingredients) => {
