@@ -2,9 +2,10 @@
 Learning reactJS from zero
 1. Refreshing knowledge of JS
 2. Basics of ES6 syntax
-3. Creating a real app // skipped
+3. Creating a real app (basic) 
 4. Axios, getting data from internet
-4. React router
+5. Creating a real app (axios) 
+6. React router
+7. Creating a real app (router)
 
-skipped 102-141
-stopped at lesson 217
+stopped at lesson 201
