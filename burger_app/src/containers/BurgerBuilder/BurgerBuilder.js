@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux/Aux'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
-
+import Spinner from '../../components/UI/Spinner/Spinner'
+import errorHandler from '../../hoc/ErrorHandler/ErrorHandler'
+import axios from '../../axios'
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -24,17 +26,35 @@ class BurgerBuilder extends Component {
         },
         totalPrice: 1,
         canBeOrdered: false,
-        isOrderNow: false
+        isOrderNow: false,
+        loading: false
     };
 
     orderContinue = () => {
-      alert('You are going to buy it!')
+        // alert('You are going to buy it!')
+        this.setState({loading: true});
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Andy Test',
+                email: 'andy@unix.home'
+            },
+            deliveryType: 'fastDelivery'
+        };
+        axios.post('/orders.json', order)
+            .then(response => {
+                this.setState({loading: false,isOrderNow: false })
+            })
+            .catch(onerror => {
+                this.setState({loading: false,isOrderNow: false })
+            })
     };
 
     orderNow = () => {
-      this.setState({
-          isOrderNow: !this.state.isOrderNow
-      })
+        this.setState({
+            isOrderNow: !this.state.isOrderNow
+        })
     };
 
     updateOrderState = (ingredients) => {
@@ -90,16 +110,20 @@ class BurgerBuilder extends Component {
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
+        let orderSummary = <OrderSummary
+            ingredients={this.state.ingredients}
+            orderCancel={this.orderNow}
+            orderContinue={this.orderContinue}
+            price={this.state.totalPrice}
+        />;
+        if (this.state.loading) {
+            orderSummary = <Spinner/>
+        }
 
         return (
             <Aux>
                 <Modal show={this.state.isOrderNow} hide={this.orderNow}>
-                    <OrderSummary
-                        ingredients={this.state.ingredients}
-                        orderCancel={this.orderNow}
-                        orderContinue={this.orderContinue}
-                        price={this.state.totalPrice}
-                    />
+                    {orderSummary}
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
@@ -115,4 +139,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default BurgerBuilder;
+export default errorHandler(BurgerBuilder, axios);
