@@ -18,7 +18,7 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component {
 
     state = {
-        ingredients: null,
+        ingredients: {},
         totalPrice: 1,
         canBeOrdered: false,
         isOrderNow: false,
@@ -35,24 +35,17 @@ class BurgerBuilder extends Component {
     }
 
     orderContinue = () => {
-        // alert('You are going to buy it!')
-        this.setState({loading: true});
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Andy Test',
-                email: 'andy@unix.home'
-            },
-            deliveryType: 'fastDelivery'
-        };
-        axios.post('/orders.json', order)
-            .then(response => {
-                this.setState({loading: false, isOrderNow: false})
-            })
-            .catch(onerror => {
-                this.setState({loading: false, isOrderNow: false})
-            })
+        const queryParams = [];
+        for (let ingredient in this.state.ingredients) {
+            queryParams.push(
+                encodeURIComponent(ingredient) + '=' + encodeURIComponent(this.state.ingredients[ingredient]))
+        }
+        queryParams.push('price=' + this.state.totalPrice.toFixed(2));
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+        });
     };
 
     orderNow = () => {
@@ -103,7 +96,6 @@ class BurgerBuilder extends Component {
             });
             this.updateOrderState(updatedIngredients)
         }
-
     };
 
     render() {

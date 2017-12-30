@@ -7,5 +7,6 @@ Learning reactJS from zero
 5. Creating a real app (axios) 
 6. React router
 7. Creating a real app (router)
+8. Form validation
 
-stopped at lesson 201
+stopped at lesson 215
