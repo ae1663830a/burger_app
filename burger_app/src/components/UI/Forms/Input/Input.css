@@ -5,9 +5,10 @@
 }
 
 .labelInput {
-    font-weight: bold;
     display: block;
     margin-bottom: 8px;
+    text-transform: capitalize;
+    text-align: left;
 }
 
 .inputElement {
@@ -22,5 +23,10 @@
 }
 
 .inputElement:focus {
-    background-color: #ccc;
+    background-color: #eee;
+}
+
+.invalidClass {
+    border: 1px solid #ff5555;
+    background-color: #fda5a5;
 }
