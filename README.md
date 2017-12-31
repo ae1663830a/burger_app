@@ -10,5 +10,6 @@ Learning reactJS from zero
 8. Form validation
 9. Redux
 10. Creating a real app (with redux)
+11. Advanced redux
 
 stopped at lesson 263
