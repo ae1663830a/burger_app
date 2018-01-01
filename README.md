@@ -8,5 +8,8 @@ Learning reactJS from zero
 6. React router
 7. Creating a real app (router)
 8. Form validation
+9. Redux
+10. Creating a real app (with redux)
+11. Advanced redux
 
-stopped at lesson 215
+stopped at lesson 263

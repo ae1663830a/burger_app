@@ -4,6 +4,7 @@ import './ContactData.css'
 import Input from '../../../components/UI/Forms/Input/Input'
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import axios from '../../../axios'
+import {connect} from 'react-redux'
 
 class ContactData extends Component {
 
@@ -34,7 +35,8 @@ class ContactData extends Component {
                 validation: {
                     required: true,
                     minLength: 5,
-                    maxLength: 40
+                    maxLength: 40,
+                    isEmail: true
                 },
                 valid: false,
                 isTouched: false
@@ -48,7 +50,9 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    maxLength: 20
+                    minLength: 6,
+                    maxLength: 20,
+                    isNumber: true
                 },
                 valid: false,
                 isTouched: false
@@ -76,7 +80,8 @@ class ContactData extends Component {
                 validation: {
                     required: true,
                     minLength: 5,
-                    maxLength: 5
+                    maxLength: 5,
+                    isNumber: true
                 },
                 valid: false,
                 isTouched: false
@@ -126,6 +131,15 @@ class ContactData extends Component {
         if (rules.maxLength && isValid) {
             isValid = value.length <= rules.maxLength
         }
+        if (rules.isEmail && isValid) {
+            // eslint-disable-next-line
+            const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            isValid = pattern.test(value)
+        }
+        if (rules.isNumber && isValid) {
+            const pattern = /^\d+$/;
+            isValid = pattern.test(value)
+        }
         return isValid;
     };
 
@@ -139,8 +153,8 @@ class ContactData extends Component {
         }
 
         const order = {
-            ingredients: this.props.ingredients,
-            price: this.props.price,
+            ingredients: this.props.ingredientsRedux,
+            price: this.props.priceRedux,
             orderData: formData
         };
         axios.post('/orders.json', order)
@@ -215,4 +229,11 @@ class ContactData extends Component {
     }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+    return {
+        ingredientsRedux: state.ingredients,
+        priceRedux: state.totalPrice
+    }
+};
+
+export default connect(mapStateToProps)(ContactData);
