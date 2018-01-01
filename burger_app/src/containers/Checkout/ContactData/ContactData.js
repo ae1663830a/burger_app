@@ -154,7 +154,7 @@ class ContactData extends Component {
 
         const order = {
             ingredients: this.props.ingredientsRedux,
-            price: this.props.priceRedux,
+            price: this.props.priceRedux.toFixed(2),
             orderData: formData
         };
         axios.post('/orders.json', order)
