@@ -118,7 +118,6 @@ class ContactData extends Component {
                 isTouched: false
             },
         },
-        loading: false,
         formIsValid: false
     };
 
@@ -210,7 +209,7 @@ class ContactData extends Component {
             ))}
             <button disabled={!this.state.formIsValid} className='Button Success'>ORDER</button>
         </form>);
-        if (this.state.loading) {
+        if (this.props.loadingRedux) {
             form = <Spinner/>
         }
 
@@ -226,13 +225,14 @@ class ContactData extends Component {
 const mapStateToProps = state => {
     return {
         ingredientsRedux: state.ingredients,
-        priceRedux: state.totalPrice
+        priceRedux: state.totalPrice,
+        loadingRedux: state.loading
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(actionCreators.purchaseBurgerStart(orderData))
+        onOrderBurger: (orderData) => dispatch(actionCreators.purchaseBurger(orderData))
     }
 };
 
