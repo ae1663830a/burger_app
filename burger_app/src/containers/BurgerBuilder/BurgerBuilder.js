@@ -101,9 +101,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(BurgerBuilder, axios));
-        })
-
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(BurgerBuilder, axios));
