@@ -8,12 +8,32 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import errorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import axios from '../../axios'
 import {connect} from 'react-redux'
+<<<<<<< HEAD
+import * as actionTypes from '../../store/actions'
+=======
 import * as actionCreators from '../../store/actions/index'
+>>>>>>> dev
 
 
 class BurgerBuilder extends Component {
 
     state = {
+<<<<<<< HEAD
+        isOrderNow: false,
+        loading: false,
+        error: false
+    };
+
+    componentDidMount() {
+        // axios.get('ingredients.json').then(response => {
+        //     this.setState({ingredients: response.data})
+        // }).catch(error => {
+        //     this.setState({error: true})
+        // })
+    }
+
+    orderContinue = () => {
+=======
         isOrderNow: false
     };
 
@@ -23,6 +43,7 @@ class BurgerBuilder extends Component {
 
     orderContinue = () => {
         this.props.onInitPurchase();
+>>>>>>> dev
         this.props.history.push('/checkout');
     };
 
@@ -49,7 +70,11 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
         let orderSummary = null;
+<<<<<<< HEAD
+        let burger = (this.state.error ? <p>Ingredients cannot be loaded</p> : <Spinner/>);
+=======
         let burger = (this.props.errorRedux ? <p>Ingredients cannot be loaded</p> : <Spinner/>);
+>>>>>>> dev
         if (this.props.ingredientsRedux) {
             burger = (
                 <Aux>
@@ -85,25 +110,39 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
     return {
+<<<<<<< HEAD
+        ingredientsRedux: state.ingredients,
+        priceRedux: state.totalPrice
+=======
         ingredientsRedux: state.burgerBuilder.ingredients,
         priceRedux: state.burgerBuilder.totalPrice,
         errorRedux: state.burgerBuilder.error
+>>>>>>> dev
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+<<<<<<< HEAD
+        onIngredientAdd: (ingredient) => dispatch({
+            type: actionTypes.ADD_INGREDIENT,
+            ingredientName: ingredient,
+            value: 1
+        }),
+        onIngredientRemove: (ingredient) => dispatch({
+            type: actionTypes.REMOVE_INGREDIENT,
+            ingredientName: ingredient,
+            value: -1
+        })
+
+    }
+=======
         onIngredientAdd: (ingredient) => dispatch(actionCreators.addIngredient(ingredient)),
         onIngredientRemove: (ingredient) => dispatch(actionCreators.removeIngredient(ingredient)),
         onInitIngredients: () => dispatch(actionCreators.initIngredients()),
         onInitPurchase: () => dispatch(actionCreators.purchaseInit())
     };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(BurgerBuilder, axios));
-        })
-
-    }
+>>>>>>> dev
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(BurgerBuilder, axios));

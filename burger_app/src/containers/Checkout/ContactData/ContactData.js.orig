@@ -5,8 +5,11 @@ import Input from '../../../components/UI/Forms/Input/Input'
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import axios from '../../../axios'
 import {connect} from 'react-redux'
+<<<<<<< HEAD
+=======
 import * as actionCreators from '../../../store/actions/index'
 import errorHandler from '../../../hoc/ErrorHandler/ErrorHandler'
+>>>>>>> dev
 
 class ContactData extends Component {
 
@@ -224,6 +227,14 @@ class ContactData extends Component {
 
 const mapStateToProps = state => {
     return {
+<<<<<<< HEAD
+        ingredientsRedux: state.ingredients,
+        priceRedux: state.totalPrice
+    }
+};
+
+export default connect(mapStateToProps)(ContactData);
+=======
         ingredientsRedux: state.burgerBuilder.ingredients,
         priceRedux: state.burgerBuilder.totalPrice,
         loadingRedux: state.order.loading
@@ -237,3 +248,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(ContactData, axios));
+>>>>>>> dev
