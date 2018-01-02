@@ -8,23 +8,17 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import errorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import axios from '../../axios'
 import {connect} from 'react-redux'
-import * as actionTypes from '../../store/actions'
+import * as actionCreators from '../../store/actions/index'
 
 
 class BurgerBuilder extends Component {
 
     state = {
-        isOrderNow: false,
-        loading: false,
-        error: false
+        isOrderNow: false
     };
 
     componentDidMount() {
-        // axios.get('ingredients.json').then(response => {
-        //     this.setState({ingredients: response.data})
-        // }).catch(error => {
-        //     this.setState({error: true})
-        // })
+        this.props.onInitIngredients()
     }
 
     orderContinue = () => {
@@ -54,7 +48,7 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
         let orderSummary = null;
-        let burger = (this.state.error ? <p>Ingredients cannot be loaded</p> : <Spinner/>);
+        let burger = (this.props.errorRedux ? <p>Ingredients cannot be loaded</p> : <Spinner/>);
         if (this.props.ingredientsRedux) {
             burger = (
                 <Aux>
@@ -76,9 +70,6 @@ class BurgerBuilder extends Component {
                 price={this.props.priceRedux}
             />;
         }
-        if (this.state.loading) {
-            orderSummary = <Spinner/>
-        }
 
         return (
             <Aux>
@@ -94,22 +85,16 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         ingredientsRedux: state.ingredients,
-        priceRedux: state.totalPrice
+        priceRedux: state.totalPrice,
+        errorRedux: state.error
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIngredientAdd: (ingredient) => dispatch({
-            type: actionTypes.ADD_INGREDIENT,
-            ingredientName: ingredient,
-            value: 1
-        }),
-        onIngredientRemove: (ingredient) => dispatch({
-            type: actionTypes.REMOVE_INGREDIENT,
-            ingredientName: ingredient,
-            value: -1
-        })
+        onIngredientAdd: (ingredient) => dispatch(actionCreators.addIngredient(ingredient)),
+        onIngredientRemove: (ingredient) => dispatch(actionCreators.removeIngredient(ingredient)),
+        onInitIngredients: () => dispatch(actionCreators.initIngredients())
 
     }
 };

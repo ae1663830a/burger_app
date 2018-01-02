@@ -11,5 +11,6 @@ Learning reactJS from zero
 9. Redux
 10. Creating a real app (with redux)
 11. Advanced redux
+12. Creating a real app (with advanced redux)
 
-stopped at lesson 263
+stopped at lesson 286
