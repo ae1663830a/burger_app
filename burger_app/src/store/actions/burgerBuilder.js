@@ -17,26 +17,28 @@ export const removeIngredient = (ingredient) => {
         value: -1
     }
 };
-
-export const setIngredients = (ingredients) => {
-    return {
-        type: actionTypes.SET_INGREDIENTS,
-        ingredients: ingredients
-    }
-};
-
-export const fetchIngredientsFailed = () => {
-    return {
-        type: actionTypes.FETCH_INGREDIENTS_FAILED
-    }
-};
+//////////////////////////////////////////////////////////
+// Functions for initIngredients                       ///
+//////////////////////////////////////////////////////////
+export const setIngredients = (ingredients) => {       ///
+    return {                                           ///
+        type: actionTypes.SET_INGREDIENTS,             ///
+        ingredients: ingredients                       ///
+    }                                                  ///
+};                                                     ///
+export const fetchIngredientsFailed = () => {          ///
+    return {                                           ///
+        type: actionTypes.FETCH_INGREDIENTS_FAILED     ///
+    }                                                  ///
+};                                                     ///
+//////////////////////////////////////////////////////////
 
 export const initIngredients = () => {
     return dispatch => {
         axios.get('ingredients.json').then(response => {
             dispatch(setIngredients(response.data))
         }).catch(error => {
-           dispatch(fetchIngredientsFailed())
+            dispatch(fetchIngredientsFailed())
         })
     }
 };
