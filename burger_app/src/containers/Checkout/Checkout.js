@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 
 class Checkout extends Component {
 
+
     orderContinue = () => this.props.history.replace('/checkout/contact-data');
     orderCancel = () => this.props.history.goBack();
 
@@ -14,8 +15,10 @@ class Checkout extends Component {
         let summary = <Redirect to='/'/>;
 
         if (this.props.ingredientsRedux) {
+            const purchasedSuccessRedirect = this.props.purchasedRedux ? <Redirect to="/"/> : null;
             summary = (
                 <div>
+                    {purchasedSuccessRedirect}
                     <CheckoutSummary
                         ingredients={this.props.ingredientsRedux}
                         orderContinue={this.orderContinue}
@@ -32,6 +35,7 @@ class Checkout extends Component {
 const mapStateToProps = state => {
     return {
         ingredientsRedux: state.burgerBuilder.ingredients,
+        purchasedRedux: state.order.purchased
     }
 };
 

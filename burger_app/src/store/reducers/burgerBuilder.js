@@ -46,12 +46,13 @@ const reducer = (state = initialState, action) => {
                 },
                 error: false
             };
+        case actionTypes.SET_PRICE:
+            return {...state, totalPrice: action.totalPrice, error: false};
         case actionTypes.FETCH_INGREDIENTS_FAILED:
             return {...state, error: true};
         default:
             return state;
     }
 };
-
 
 export default reducer;

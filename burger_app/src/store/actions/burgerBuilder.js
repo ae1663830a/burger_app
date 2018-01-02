@@ -26,6 +26,12 @@ export const setIngredients = (ingredients) => {       ///
         ingredients: ingredients                       ///
     }                                                  ///
 };                                                     ///
+export const setPrice = (price) => {                   ///
+    return {                                           ///
+        type: actionTypes.SET_PRICE,                   ///
+        totalPrice: price                              ///
+    }                                                  ///
+};                                                     ///
 export const fetchIngredientsFailed = () => {          ///
     return {                                           ///
         type: actionTypes.FETCH_INGREDIENTS_FAILED     ///
@@ -39,6 +45,11 @@ export const initIngredients = () => {
             dispatch(setIngredients(response.data))
         }).catch(error => {
             dispatch(fetchIngredientsFailed())
-        })
+        });
+        axios.get('totalPrice.json').then(response => {
+            dispatch(setPrice(response.data))
+        }).catch(error => {
+            dispatch(fetchIngredientsFailed())
+        });
     }
 };

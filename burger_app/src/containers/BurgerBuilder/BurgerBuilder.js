@@ -22,6 +22,7 @@ class BurgerBuilder extends Component {
     }
 
     orderContinue = () => {
+        this.props.onInitPurchase();
         this.props.history.push('/checkout');
     };
 
@@ -86,7 +87,7 @@ const mapStateToProps = state => {
     return {
         ingredientsRedux: state.burgerBuilder.ingredients,
         priceRedux: state.burgerBuilder.totalPrice,
-        errorRedux: state.burgerBuilder.error
+        errorRedux: state.burgerBuilder.error,
     }
 };
 
@@ -94,9 +95,9 @@ const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdd: (ingredient) => dispatch(actionCreators.addIngredient(ingredient)),
         onIngredientRemove: (ingredient) => dispatch(actionCreators.removeIngredient(ingredient)),
-        onInitIngredients: () => dispatch(actionCreators.initIngredients())
-
-    }
+        onInitIngredients: () => dispatch(actionCreators.initIngredients()),
+        onInitPurchase: () => dispatch(actionCreators.purchaseInit())
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(BurgerBuilder, axios));
