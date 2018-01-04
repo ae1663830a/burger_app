@@ -37,7 +37,7 @@ class Orders extends Component {
                 <div className='orders' onClick={() => this.props.history.push('/')}>
                     <h2>No orders have been placed yet.</h2>
                     <p>Please make Your order!</p>
-                    <p>Press to order!</p>
+                    <p>Press to order</p>
                 </div>
             )
         }
