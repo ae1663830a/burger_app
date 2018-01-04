@@ -43,12 +43,12 @@ export const initIngredients = () => {
     return dispatch => {
         axios.get('ingredients.json').then(response => {
             dispatch(setIngredients(response.data))
-        }).catch(error => {
+        }).catch(() => {
             dispatch(fetchIngredientsFailed())
         });
         axios.get('totalPrice.json').then(response => {
             dispatch(setPrice(response.data))
-        }).catch(error => {
+        }).catch(() => {
             dispatch(fetchIngredientsFailed())
         });
     }

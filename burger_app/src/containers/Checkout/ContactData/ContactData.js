@@ -7,6 +7,7 @@ import axios from '../../../axios'
 import {connect} from 'react-redux'
 import * as actionCreators from '../../../store/actions/index'
 import errorHandler from '../../../hoc/ErrorHandler/ErrorHandler'
+import {updateObject, checkValidity} from "../../../shared/utility"
 
 class ContactData extends Component {
 
@@ -121,41 +122,15 @@ class ContactData extends Component {
         formIsValid: false
     };
 
-    checkValidity = (value, rules) => {
-        let isValid = true;
-        if (rules.required && isValid) {
-            isValid = value.trim() !== '';
-        }
-        if (rules.minLength && isValid) {
-            isValid = value.length >= rules.minLength
-        }
-        if (rules.maxLength && isValid) {
-            isValid = value.length <= rules.maxLength
-        }
-        if (rules.isEmail && isValid) {
-            // eslint-disable-next-line
-            const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            isValid = pattern.test(value)
-        }
-        if (rules.isNumber && isValid) {
-            const pattern = /^\d+$/;
-            isValid = pattern.test(value)
-        }
-        return isValid;
-    };
-
     changeInputValue = (event, element) => {
-        const updatedForm = {
-            ...this.state.orderForm
-        };
-        const updatedFormElement = {
-            ...updatedForm[element]
-        };
-        updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-        updatedForm[element] = updatedFormElement;
-        console.log(updatedFormElement);
-        updatedFormElement.isTouched = true;
+        const updatedFormElement = updateObject(this.state.orderForm[element], {
+            value: event.target.value,
+            valid: checkValidity(event.target.value, this.state.orderForm[element].validation),
+            isTouched: true
+        });
+        const updatedForm = updateObject(this.state.orderForm, {
+            [element]: updatedFormElement
+        });
 
         let validForm = true;
         for (let element in updatedForm) {
@@ -165,7 +140,6 @@ class ContactData extends Component {
             orderForm: updatedForm,
             formIsValid: validForm
         });
-        console.log(updatedForm[element].value, element)
     };
 
     orderHandler = (event) => {

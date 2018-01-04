@@ -6,6 +6,7 @@ import * as actionCreators from '../../store/actions/index'
 import {connect} from 'react-redux'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import {Redirect} from 'react-router-dom'
+import {updateObject, checkValidity} from "../../shared/utility";
 
 class Authentication extends Component {
 
@@ -52,35 +53,14 @@ class Authentication extends Component {
         }
     }
 
-    checkValidity = (value, rules) => {
-        let isValid = true;
-        if (rules.required && isValid) {
-            isValid = value.trim() !== '';
-        }
-        if (rules.minLength && isValid) {
-            isValid = value.length >= rules.minLength
-        }
-        if (rules.maxLength && isValid) {
-            isValid = value.length <= rules.maxLength
-        }
-        if (rules.isEmail && isValid) {
-            // eslint-disable-next-line
-            const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            isValid = pattern.test(value)
-        }
-        return isValid;
-    };
-
     changeInputValue = (event, element) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [element]: {
-                ...this.state.controls[element],
+        const updatedControls = updateObject(this.state.controls, {
+            [element]: updateObject(this.state.controls[element], {
                 value: event.target.value,
-                valid: this.checkValidity(event.target.value, this.state.controls[element].validation),
+                valid: checkValidity(event.target.value, this.state.controls[element].validation),
                 isTouched: true
-            }
-        };
+            })
+        });
 
         let validForm = true;
         for (let element in updatedControls) {
