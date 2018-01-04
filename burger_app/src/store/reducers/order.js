@@ -6,12 +6,10 @@ const initialState = {
 };
 
 const purchaseBurgerSuccess = (state, action) => {
-    const newOrder = {...action.orderData, id: action.orderId};
     return {
         ...state,
         loading: false,
         purchased: true,
-        orders: state.orders.concat(newOrder)
     }
 };
 

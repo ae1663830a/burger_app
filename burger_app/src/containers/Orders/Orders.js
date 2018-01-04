@@ -6,11 +6,14 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import Aux from '../../hoc/Aux/Aux'
 import {connect} from 'react-redux'
 import * as actionCreators from '../../store/actions/index'
+import './Orders.css'
 
 class Orders extends Component {
 
     componentDidMount() {
-        this.props.onFetchOrders()
+        const token = this.props.tokenRedux;
+        const userId = this.props.userIdRedux;
+        this.props.onFetchOrders(token, userId)
     }
 
     render() {
@@ -29,20 +32,34 @@ class Orders extends Component {
                 </Aux>
             );
 
-        return <div>{orders}</div>;
+        if (this.props.ordersRedux.length === 0) {
+            orders = (
+                <div className='orders' onClick={() => this.props.history.push('/')}>
+                    <h2>No orders have been placed yet.</h2>
+                    <p>Please make Your order!</p>
+                    <p>Press to order!</p>
+                </div>
+            )
+        }
+
+        return (
+            <div>{orders}</div>
+        );
     }
 }
 
 const mapStateToProps = state => {
     return {
         ordersRedux: state.orders.orders,
-        loadingRedux: state.orders.loading
+        loadingRedux: state.orders.loading,
+        tokenRedux: state.authentication.token,
+        userIdRedux: state.authentication.userId
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrders: () => dispatch(actionCreators.fetchOrders())
+        onFetchOrders: (token, userId) => dispatch(actionCreators.fetchOrders(token, userId))
     };
 };
 

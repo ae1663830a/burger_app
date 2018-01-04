@@ -144,22 +144,6 @@ class ContactData extends Component {
         return isValid;
     };
 
-    orderHandler = (event) => {
-        event.preventDefault();
-
-        const formData = {};
-        for (let formElement in this.state.orderForm) {
-            formData[formElement] = this.state.orderForm[formElement].value;
-        }
-
-        const order = {
-            ingredients: this.props.ingredientsRedux,
-            price: this.props.priceRedux.toFixed(2),
-            orderData: formData
-        };
-        this.props.onOrderBurger(order);
-    };
-
     changeInputValue = (event, element) => {
         const updatedForm = {
             ...this.state.orderForm
@@ -182,6 +166,23 @@ class ContactData extends Component {
             formIsValid: validForm
         });
         console.log(updatedForm[element].value, element)
+    };
+
+    orderHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for (let formElement in this.state.orderForm) {
+            formData[formElement] = this.state.orderForm[formElement].value;
+        }
+
+        const order = {
+            ingredients: this.props.ingredientsRedux,
+            price: this.props.priceRedux.toFixed(2),
+            orderData: formData,
+            userId: this.props.userIdRedux
+        };
+        const token = this.props.tokenRedux;
+        this.props.onOrderBurger(order, token);
     };
 
     render() {
@@ -214,7 +215,7 @@ class ContactData extends Component {
         }
 
         return (
-            <div className='contactData'>
+            <div className='orders'>
                 <h4>Enter your contact data</h4>
                 {form}
             </div>
@@ -226,13 +227,15 @@ const mapStateToProps = state => {
     return {
         ingredientsRedux: state.burgerBuilder.ingredients,
         priceRedux: state.burgerBuilder.totalPrice,
-        loadingRedux: state.order.loading
+        loadingRedux: state.order.loading,
+        tokenRedux: state.authentication.token,
+        userIdRedux: state.authentication.userId
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(actionCreators.purchaseBurger(orderData))
+        onOrderBurger: (orderData, token) => dispatch(actionCreators.purchaseBurger(orderData, token))
     }
 };
 
